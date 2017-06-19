@@ -101,6 +101,45 @@ namespace sict{
         return Res;
     }
 
+    Fraction Fraction::operator*(Fraction s) {
+        Fraction Res;
+        if(!(isEmpty() || s.isEmpty())) {
+            Res.m_numerator = m_numerator * s.m_numerator;
+            Res.m_denominator = m_denominator * s.m_denominator;
+        }
+        return Res;
+    }
+
+    bool Fraction::operator==(Fraction s) const {
+        bool Ret = false;
+        if(!isEmpty()){
+            if((m_numerator*s.m_denominator)==(m_denominator*s.m_numerator)){
+                Ret = true;
+            }
+        }else{
+            Ret = false;
+        }
+        return Ret;
+    }
+
+    bool Fraction::operator!=(Fraction s) const {
+        bool Ret = false;
+        if(!isEmpty()){
+            if((m_numerator*s.m_denominator)!=(m_denominator*s.m_numerator)){
+                Ret = true;
+            }
+        }else{
+            Ret = false;
+        }
+        return Ret;
+    }
+
+    Fraction Fraction::operator+=(Fraction s) {
+        *this = *this + s;
+        reduce();
+        return  *this;
+    }
+
 }
 
 

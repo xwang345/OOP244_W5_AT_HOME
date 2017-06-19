@@ -29,6 +29,10 @@ namespace sict {
 
         // TODO: declare the + operator overload
         Fraction operator+(Fraction);
+        Fraction operator*(Fraction);
+        bool operator==(Fraction) const;
+        bool operator!=(Fraction) const;
+        Fraction operator+=(Fraction);
     };
 };
 #endif
